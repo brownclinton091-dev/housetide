@@ -34,7 +34,7 @@
       linear-gradient(135deg, var(--night) 0%, var(--night-2) 100%);
     display:flex;
     justify-content:center;
-    padding:28px 16px 50px;
+    padding:28px 16px 90px;
     position:relative;
     overflow-x:hidden;
   }
@@ -443,6 +443,72 @@
   }
   .confirmation-list li{ margin-bottom:4px; }
 
+  .sticky-book-btn{
+    position:fixed;
+    right:16px;
+    bottom:18px;
+    z-index:50;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 16px;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--gold), #E4B85A);
+    color:var(--night);
+    font-weight:800;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:10px;
+    box-shadow:0 10px 25px rgba(214,168,74,0.28);
+    animation:bookPulse 2.2s ease-in-out infinite;
+  }
+  .sticky-book-btn:hover{ transform:translateY(-1px); }
+  @keyframes bookPulse{
+    0%, 100%{ transform:translateY(0); box-shadow:0 10px 25px rgba(214,168,74,0.28); }
+    50%{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(214,168,74,0.34); }
+  }
+
+  .booking-shell{
+    margin-top:28px;
+    padding:1px;
+    border-radius:18px;
+    background:linear-gradient(135deg, rgba(47,125,118,0.35), rgba(214,168,74,0.18));
+    box-shadow:0 16px 40px rgba(0,0,0,0.2);
+  }
+  .booking-card{
+    background:rgba(8,19,26,0.94);
+    border:1px solid rgba(245,247,248,0.12);
+    border-radius:17px;
+    padding:18px;
+  }
+  .booking-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:8px;
+  }
+  .booking-kicker{
+    font-size:9px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:4px;
+    font-weight:700;
+  }
+  .price-pill{
+    background:rgba(214,168,74,0.16);
+    color:var(--gold);
+    border:1px solid rgba(214,168,74,0.24);
+    padding:8px 10px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:12px;
+    white-space:nowrap;
+  }
+
   .section-title{
     font-family:'Anton', sans-serif;
     font-size:20px;
@@ -455,6 +521,16 @@
     margin-bottom:16px;
   }
 
+  .form-grid{
+    display:grid;
+    gap:12px;
+  }
+  .field-group{
+    padding:12px;
+    border-radius:12px;
+    background:rgba(245,247,248,0.04);
+    border:1px solid rgba(245,247,248,0.1);
+  }
   label{
     display:block;
     font-size:9px;
@@ -469,21 +545,21 @@
     background:rgba(244,246,245,0.06);
     border:1px solid rgba(244,246,245,0.25);
     color:var(--paper);
-    font-family:'Space Mono', monospace;
+    font-family:'Inter', 'Segoe UI', Arial, sans-serif;
     font-size:14px;
     padding:11px 12px;
-    border-radius:8px;
+    border-radius:10px;
     margin-bottom:4px;
-    transition:border-color 0.2s;
+    transition:border-color 0.2s, box-shadow 0.2s;
   }
-  input:focus{ outline:none; border-color:var(--aqua); }
+  input:focus{ outline:none; border-color:var(--aqua); box-shadow:0 0 0 3px rgba(47,125,118,0.15); }
   input.invalid{ border-color:var(--pink); }
   input::placeholder{ color:rgba(244,246,245,0.35); }
 
   .field-hint{
     font-size:8.5px;
     color:rgba(244,246,245,0.4);
-    margin-bottom:14px;
+    margin-bottom:0;
   }
   .field-hint.show-error{ color:var(--pink); }
 
@@ -491,11 +567,15 @@
     display:flex;
     align-items:center;
     gap:12px;
-    margin-bottom:16px;
+    margin:14px 0 16px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(245,247,248,0.04);
+    border:1px solid rgba(245,247,248,0.1);
   }
   .qty-btn{
     width:38px; height:38px;
-    border-radius:8px;
+    border-radius:10px;
     border:1px solid rgba(244,246,245,0.25);
     background:rgba(244,246,245,0.06);
     color:var(--paper);
@@ -509,9 +589,9 @@
     display:flex;
     justify-content:space-between;
     align-items:baseline;
-    background:rgba(242,184,74,0.1);
-    border:1px solid rgba(242,184,74,0.3);
-    border-radius:8px;
+    background:linear-gradient(90deg, rgba(214,168,74,0.14), rgba(47,125,118,0.12));
+    border:1px solid rgba(214,168,74,0.24);
+    border-radius:12px;
     padding:12px 14px;
     margin-bottom:18px;
   }
@@ -527,7 +607,7 @@
     font-size:16px;
     letter-spacing:0.03em;
     padding:14px;
-    border-radius:9px;
+    border-radius:12px;
     cursor:pointer;
     text-transform:uppercase;
     box-shadow:0 8px 22px rgba(47,125,118,0.25);
@@ -671,7 +751,9 @@
 <div class="bubble" style="width:90px; height:90px; background:var(--pink); top:60%; right:-30px; animation-delay:2s;"></div>
 <div class="bubble" style="width:60px; height:60px; background:var(--gold); bottom:5%; left:10%; animation-delay:4s;"></div>
 
-<div class="page">
+<a class="sticky-book-btn" href="#orderForm">Book Now</a>
+
+  <div class="page">
 
   <div class="trust-strip"><span class="dot"></span> Official Ticket Portal &mdash; House Tide</div>
 
@@ -741,33 +823,47 @@
   </div>
 
   <!-- ORDER FORM -->
-  <div id="orderForm">
-    <div class="section-title">Get Your Ticket</div>
-    <div class="section-sub">Takes less than a minute &mdash; you'll get your order code instantly.</div>
+  <div id="orderForm" class="booking-shell">
+    <div class="booking-card">
+      <div class="booking-head">
+        <div>
+          <div class="booking-kicker">Limited release</div>
+          <div class="section-title" style="margin:0;">Reserve your place</div>
+        </div>
+        <div class="price-pill">GH&#8373;200 each</div>
+      </div>
+      <div class="section-sub">Takes less than a minute &mdash; you'll get your order code instantly.</div>
 
-    <label for="fullName">Full name</label>
-    <input type="text" id="fullName" placeholder="e.g. Ama Boateng">
-    <div class="field-hint" id="nameHint">As it should appear on the guest list</div>
+      <div class="form-grid">
+        <div class="field-group">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" placeholder="e.g. Ama Boateng">
+          <div class="field-hint" id="nameHint">As it should appear on the guest list</div>
+        </div>
 
-    <label for="phone">Phone number (for WhatsApp)</label>
-    <input type="tel" id="phone" placeholder="e.g. 024 123 4567">
-    <div class="field-hint" id="phoneHint">We'll only use this to confirm your entry</div>
+        <div class="field-group">
+          <label for="phone">Phone number (for WhatsApp)</label>
+          <input type="tel" id="phone" placeholder="e.g. 024 123 4567">
+          <div class="field-hint" id="phoneHint">We'll only use this to confirm your entry</div>
+        </div>
+      </div>
 
-    <label>Number of tickets</label>
-    <div class="qty-row">
-      <button type="button" class="qty-btn" onclick="changeQty(-1)">&minus;</button>
-      <span class="qty-val" id="qtyVal">1</span>
-      <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+      <label style="margin-top:14px;">Number of tickets</label>
+      <div class="qty-row">
+        <button type="button" class="qty-btn" onclick="changeQty(-1)">&minus;</button>
+        <span class="qty-val" id="qtyVal">1</span>
+        <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <div class="total-row">
+        <span class="label">Total due</span>
+        <span class="amount" id="totalAmount">GH&#8373;200</span>
+      </div>
+
+      <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
+
+      <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
     </div>
-
-    <div class="total-row">
-      <span class="label">Total due</span>
-      <span class="amount" id="totalAmount">GH&#8373;200</span>
-    </div>
-
-    <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
-
-    <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
   </div>
 
   <!-- CONFIRMATION -->
