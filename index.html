@@ -576,6 +576,72 @@
     background:rgba(245,247,248,0.04);
     border:1px solid rgba(245,247,248,0.1);
   }
+  .ticket-type-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+  }
+  .ticket-type{
+    border:1px solid rgba(244,246,245,0.18);
+    background:rgba(255,255,255,0.04);
+    border-radius:12px;
+    padding:14px 12px;
+    color:var(--paper);
+    text-align:left;
+    cursor:pointer;
+    transition:transform 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .ticket-type strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:4px;
+  }
+  .ticket-type span{
+    font-size:12px;
+    color:rgba(244,246,245,0.75);
+    line-height:1.3;
+  }
+  .ticket-type small{
+    display:block;
+    margin-top:4px;
+    font-size:10px;
+    color:var(--aqua);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .ticket-type[data-type="silver"]{
+    border-color:rgba(173,181,189,0.35);
+    background:rgba(190,203,216,0.12);
+  }
+  .ticket-type[data-type="silver"] strong,
+  .ticket-type[data-type="silver"] span{
+    color:#E7EDF3;
+  }
+  .ticket-type[data-type="silver"] small{
+    color:#B8C0C8;
+  }
+  .ticket-type[data-type="gold"]{
+    border-color:rgba(214,168,74,0.35);
+    background:rgba(214,168,74,0.14);
+  }
+  .ticket-type[data-type="gold"] strong,
+  .ticket-type[data-type="gold"] span{
+    color:#FFF0C8;
+  }
+  .ticket-type[data-type="gold"] small{
+    color:#F4E1A2;
+  }
+  .ticket-type.active[data-type="silver"]{
+    border-color:#B8C0C8;
+    background:rgba(190,203,216,0.24);
+    box-shadow:0 12px 30px rgba(190,203,216,0.12);
+  }
+  .ticket-type.active[data-type="gold"]{
+    border-color:var(--gold);
+    background:rgba(214,168,74,0.24);
+    box-shadow:0 12px 30px rgba(214,168,74,0.14);
+  }
   .qty-btn{
     width:38px; height:38px;
     border-radius:10px;
@@ -823,7 +889,7 @@
 
   <div class="card">
     <div class="row2">
-      <div class="meta"><span class="label">Date</span><span class="value">Sat, Sep 19</span></div>
+      <div class="meta"><span class="label">Date</span><span class="value">Sat, Aug 22</span></div>
       <div class="meta"><span class="label">Time</span><span class="value">7PM&ndash;Late</span></div>
     </div>
     <div class="venue-row"><span class="pin">&#128205;</span> Tabora Number 3</div>
@@ -833,7 +899,7 @@
       <span class="tag">Pool</span>
       <span class="tag">DJ</span>
     </div>
-    <div class="includes">Includes <b>entry, complimentary drinks</b> and <b>grilled bites</b> &middot; GH&#8373;200 per ticket</div>
+    <div class="includes">Includes <b>entry, complimentary drinks</b> and <b>grilled bites</b> &middot; from GH&#8373;150</div>
     <div class="urgency-banner">Limited entry &mdash; secure your spot early</div>
     <div class="social-proof">
       <span class="avatars"><span></span><span></span><span></span></span>
@@ -859,7 +925,7 @@
           <div class="booking-kicker">Limited release</div>
           <div class="section-title" style="margin:0;">Reserve your place</div>
         </div>
-        <div class="price-pill">GH&#8373;200 each</div>
+        <div class="price-pill">GH&#8373;150 each</div>
       </div>
       <div class="section-sub">Takes less than a minute &mdash; you'll get your order code instantly.</div>
 
@@ -874,6 +940,20 @@
           <label for="phone">Phone number (for WhatsApp)</label>
           <input type="tel" id="phone" placeholder="e.g. 024 123 4567">
           <div class="field-hint" id="phoneHint">We'll only use this to confirm your entry</div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Ticket type</label>
+        <div class="ticket-type-grid">
+          <button type="button" class="ticket-type active" data-type="silver" onclick="selectTicketType('silver')">
+            <strong>Silver</strong>
+            <span>GH₵150<br><small>Regular</small></span>
+          </button>
+          <button type="button" class="ticket-type" data-type="gold" onclick="selectTicketType('gold')">
+            <strong>Gold</strong>
+            <span>GH₵200<br><small>VIP</small></span>
+          </button>
         </div>
       </div>
 
@@ -892,7 +972,7 @@
       <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
 
       <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
-      <a class="share-btn" href="https://wa.me/?text=Join%20me%20at%20HOUSE%20TIDE%20-%20After%20Dark%20Pool%20Edition%20on%20Sep%2019%20at%20Tabora%20Number%203.%20Book%20tickets%20for%20GH%C2%A5200%20each%20now!" target="_blank">Share on WhatsApp</a>
+      <a class="share-btn" href="#" target="_blank">Share on WhatsApp</a>
     </div>
   </div>
 
@@ -938,10 +1018,10 @@
     <div class="pay-option">
       <div>
         <span class="net">MTN MoMo</span>
-        <span class="num">0557 668 950</span>
-        <div class="who">SOPHIA EKUA DEBRAH</div>
+        <span class="num">0557 013 458</span>
+        <div class="who">QUARTEY PAPAFIO</div>
       </div>
-      <button class="copy-btn" onclick="copyNum('0557668950', this)">Copy</button>
+      <button class="copy-btn" onclick="copyNum('0557013458', this)">Copy</button>
     </div>
 
     <div class="pay-option">
@@ -1014,12 +1094,36 @@
 
 <script>
   let qty = 1;
-  const PRICE = 200;
+  let ticketType = 'silver';
+  const TICKET_PRICES = { silver: 150, gold: 200 };
+
+  function updateShareLink(){
+    const price = TICKET_PRICES[ticketType];
+    const ticketLabel = ticketType.charAt(0).toUpperCase() + ticketType.slice(1);
+    const encodedText = encodeURIComponent(`Join me at HOUSE TIDE - After Dark Pool Edition on Aug 22 at Tabora Number 3. I'm booking ${qty} ${ticketLabel} ticket(s) at GH₵${price} each. Reserve your spot now!`);
+    document.querySelector('.share-btn').href = `https://wa.me/?text=${encodedText}`;
+  }
+
+  function updateTicketDisplay(){
+    const price = TICKET_PRICES[ticketType];
+    document.querySelector('.price-pill').textContent = 'GH₵' + price + ' each';
+    document.getElementById('totalAmount').textContent = 'GH₵' + (qty * price);
+    document.querySelector('.section-sub').textContent = 'Takes less than a minute — you will get your order code instantly.';
+    updateShareLink();
+  }
+
+  function selectTicketType(type){
+    ticketType = type;
+    document.querySelectorAll('.ticket-type').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.type === type);
+    });
+    updateTicketDisplay();
+  }
 
   function changeQty(delta){
     qty = Math.max(1, qty + delta);
     document.getElementById('qtyVal').textContent = qty;
-    document.getElementById('totalAmount').textContent = 'GH₵' + (qty * PRICE);
+    updateTicketDisplay();
   }
 
   function isValidPhone(phone){
@@ -1047,12 +1151,13 @@
     errorEl.style.display = 'none';
 
     const code = 'HT-' + Math.floor(1000 + Math.random() * 9000);
-    const total = qty * PRICE;
+    const price = TICKET_PRICES[ticketType];
+    const total = qty * price;
 
     document.getElementById('orderCodeDisplay').textContent = code;
     document.getElementById('stepsAmount').textContent = 'GH₵' + total;
 
-    const message = `Hi! Here's my payment proof for HOUSE TIDE 🌊%0A%0AOrder Code: ${code}%0AName: ${name}%0APhone: ${phone}%0ATickets: ${qty}%0ATotal: GH₵${total}%0A%0A(Attaching screenshot below)`;
+    const message = `Hi! Here's my payment proof for HOUSE TIDE 🌊%0A%0AOrder Code: ${code}%0AName: ${name}%0APhone: ${phone}%0ATickets: ${qty} x ${ticketType.charAt(0).toUpperCase() + ticketType.slice(1)}%0ATotal: GH₵${total}%0A%0A(Attaching screenshot below)`;
     document.getElementById('whatsappBtn').href = `https://wa.me/233504463338?text=${message}`;
 
     document.getElementById('orderForm').style.display = 'none';
@@ -1072,6 +1177,10 @@
     });
   }
 
+  document.addEventListener('DOMContentLoaded', () => {
+    selectTicketType('silver');
+  });
+
   function toggleFaq(item){
     const wasOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
@@ -1087,7 +1196,7 @@
     });
   }
 
-  const countdownTarget = new Date('2026-09-19T19:00:00').getTime();
+  const countdownTarget = new Date('2026-08-22T19:00:00').getTime();
   function updateCountdown(){
     const now = new Date().getTime();
     const diff = countdownTarget - now;
