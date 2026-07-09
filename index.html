@@ -803,9 +803,24 @@
   <div class="gallery-card">
     <div class="section-title" style="font-size:18px; margin:0 0 10px;">What to expect</div>
     <div class="gallery-grid">
-      <div class="gallery-item one">Poolside energy</div>
-      <div class="gallery-item two">Live DJ sets</div>
-      <div class="gallery-item three">Premium drinks</div>
+      <div class="gallery-item video one">
+        <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"><span>Poolside energy</span></div>
+      </div>
+      <div class="gallery-item video two">
+        <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"><span>Live DJ sets</span></div>
+      </div>
+      <div class="gallery-item video three">
+        <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"><span>Premium drinks</span></div>
+      </div>
       <div class="gallery-item four">Good vibes</div>
     </div>
   </div>
@@ -1053,6 +1068,15 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('video[autoplay]').forEach((video) => {
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      video.play().catch(() => {});
+    });
+  });
 </script>
 
 </body>
