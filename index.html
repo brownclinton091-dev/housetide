@@ -675,7 +675,7 @@
     font-size:9px; letter-spacing:0.14em; color:var(--aqua); text-transform:uppercase; display:block; margin-bottom:4px;
   }
   .pay-option .num{ font-size:16px; font-weight:700; }
-  .pay-option .who{ font-size:10px; color:rgba(244,246,245,0.6); margin-top:2px; }
+  .pay-option .who{ font-size:11px; font-weight:800; letter-spacing:0.04em; color:#F9E3A4; text-transform:uppercase; margin-top:4px; text-shadow:0 0 10px rgba(214,168,74,0.18); }
   .copy-btn{
     background:rgba(46,230,214,0.15);
     border:1px solid var(--aqua);
@@ -716,6 +716,27 @@
     box-shadow:0 8px 22px rgba(47,125,118,0.25);
   }
 
+  .share-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    background:linear-gradient(90deg, #3CA091, var(--gold));
+    color:var(--night);
+    font-family:'Anton', sans-serif;
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:13px;
+    border-radius:9px;
+    margin-top:12px;
+    box-shadow:0 6px 18px rgba(47,125,118,0.2);
+  }
+
+  .share-btn:hover{
+    filter:brightness(1.05);
+  }
+
   .back-link{
     display:block;
     text-align:center;
@@ -729,22 +750,57 @@
   /* ---- footer / legitimacy block ---- */
   .footer{
     margin-top:34px;
-    border-top:1px solid rgba(244,246,245,0.1);
-    padding-top:18px;
+    border-top:1px solid rgba(244,246,245,0.12);
+    padding:18px 4px 6px;
+    background:rgba(245,247,248,0.03);
+    border-radius:12px;
+  }
+  .footer-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+    padding-bottom:10px;
+    border-bottom:1px dashed rgba(244,246,245,0.12);
+  }
+  .brand-mark{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg, var(--aqua), var(--gold));
+    color:var(--night);
+    font-family:'Anton', sans-serif;
+    font-size:16px;
+    font-weight:700;
+  }
+  .footer-brand strong{
+    display:block;
+    font-size:13px;
+    color:var(--paper);
+    margin-bottom:2px;
+  }
+  .footer-brand span{
+    display:block;
+    font-size:10px;
+    color:rgba(244,246,245,0.6);
   }
   .footer-row{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+    gap:10px;
     font-size:9.5px;
-    color:rgba(244,246,245,0.55);
+    color:rgba(244,246,245,0.6);
     margin-bottom:8px;
   }
-  .footer-row b{ color:rgba(244,246,245,0.85); }
+  .footer-row b{ color:rgba(244,246,245,0.92); font-weight:700; }
   .terms{
     font-size:8.5px;
     line-height:1.6;
-    color:rgba(244,246,245,0.35);
-    margin-top:10px;
+    color:rgba(244,246,245,0.38);
+    margin-top:12px;
   }
 </style>
 </head>
@@ -796,44 +852,6 @@
     <div class="countdown-note">Tickets are limited and the final release is expected to sell out quickly.</div>
   </div>
 
-  <div class="venue-card">
-    <div class="venue-title">Venue Preview</div>
-    <div class="venue-address">Tabora Number 3<br>Poolside setup with premium seating, curated music, and a relaxed atmosphere.</div>
-    <div class="map-preview">Map preview<br>Tabora Number 3</div>
-    <a class="map-link" href="https://maps.google.com/?q=Tabora+Number+3" target="_blank">Open in Google Maps</a>
-  </div>
-
-  <div class="gallery-card">
-    <div class="section-title" style="font-size:18px; margin:0 0 10px;">What to expect</div>
-    <div class="gallery-grid two-up">
-      <div class="gallery-item video one">
-        <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80">
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"><span>Poolside energy</span></div>
-      </div>
-      <div class="gallery-item video two">
-        <video autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80">
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"><span>Live DJ sets</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="trust-points">
-    <div class="trust-point"><div class="icon">✓</div><div><strong>Secure booking</strong>Your reservation is confirmed instantly with an order code for fast entry.</div></div>
-    <div class="trust-point"><div class="icon">🔒</div><div><strong>Verified payments</strong>Payments are reviewed manually and only confirmed once proof is received.</div></div>
-    <div class="trust-point"><div class="icon">✉</div><div><strong>Direct support</strong>Need help with tickets, timing, or directions? We reply on WhatsApp.</div></div>
-  </div>
-
-  <div class="support-card">
-    <div class="title">Need help?</div>
-    <div class="desc">Reach the team directly for ticket support, venue details, or payment questions.</div>
-    <a class="link" href="https://wa.me/233504463338" target="_blank">Chat with support</a>
-  </div>
-
-  <!-- ORDER FORM -->
   <div id="orderForm" class="booking-shell">
     <div class="booking-card">
       <div class="booking-head">
@@ -874,7 +892,27 @@
       <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
 
       <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
+      <a class="share-btn" href="https://wa.me/?text=Join%20me%20at%20HOUSE%20TIDE%20-%20After%20Dark%20Pool%20Edition%20on%20Sep%2019%20at%20Tabora%20Number%203.%20Book%20tickets%20for%20GH%C2%A5200%20each%20now!" target="_blank">Share on WhatsApp</a>
     </div>
+  </div>
+
+  <div class="venue-card">
+    <div class="venue-title">Venue Preview</div>
+    <div class="venue-address">Tabora Number 3<br>Poolside setup with premium seating, curated music, and a relaxed atmosphere.</div>
+    <div class="map-preview">Map preview<br>Tabora Number 3</div>
+    <a class="map-link" href="https://maps.google.com/?q=Tabora+Number+3" target="_blank">Open in Google Maps</a>
+  </div>
+
+  <div class="trust-points">
+    <div class="trust-point"><div class="icon">✓</div><div><strong>Secure booking</strong>Your reservation is confirmed instantly with an order code for fast entry.</div></div>
+    <div class="trust-point"><div class="icon">🔒</div><div><strong>Verified payments</strong>Payments are reviewed manually and only confirmed once proof is received.</div></div>
+    <div class="trust-point"><div class="icon">✉</div><div><strong>Direct support</strong>Need help with tickets, timing, or directions? We reply on WhatsApp.</div></div>
+  </div>
+
+  <div class="support-card">
+    <div class="title">Need help?</div>
+    <div class="desc">Reach the team directly for ticket support, venue details, or payment questions.</div>
+    <a class="link" href="https://wa.me/233504463338" target="_blank">Chat with support</a>
   </div>
 
   <!-- CONFIRMATION -->
@@ -900,17 +938,17 @@
     <div class="pay-option">
       <div>
         <span class="net">MTN MoMo</span>
-        <span class="num">0531 984 299</span>
-        <div class="who">DAVID</div>
+        <span class="num">0557 668 950</span>
+        <div class="who">SOPHIA EKUA DEBRAH</div>
       </div>
-      <button class="copy-btn" onclick="copyNum('0531984299', this)">Copy</button>
+      <button class="copy-btn" onclick="copyNum('0557668950', this)">Copy</button>
     </div>
 
     <div class="pay-option">
       <div>
         <span class="net">Telecel Cash</span>
         <span class="num">0504 463 338</span>
-        <div class="who">Zakari Osumanu</div>
+        <div class="who">ZAKARI OSUMANU</div>
       </div>
       <button class="copy-btn" onclick="copyNum('0504463338', this)">Copy</button>
     </div>
@@ -1018,13 +1056,20 @@
     document.getElementById('whatsappBtn').href = `https://wa.me/233504463338?text=${message}`;
 
     document.getElementById('orderForm').style.display = 'none';
-    document.getElementById('confirmation').style.display = 'block';
-    window.scrollTo({top: 0, behavior:'smooth'});
+    const confirmationEl = document.getElementById('confirmation');
+    confirmationEl.style.display = 'block';
+    requestAnimationFrame(() => {
+      confirmationEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
   }
 
   function resetForm(){
     document.getElementById('confirmation').style.display = 'none';
-    document.getElementById('orderForm').style.display = 'block';
+    const orderFormEl = document.getElementById('orderForm');
+    orderFormEl.style.display = 'block';
+    requestAnimationFrame(() => {
+      orderFormEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
   }
 
   function toggleFaq(item){
