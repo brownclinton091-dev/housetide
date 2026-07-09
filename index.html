@@ -876,7 +876,7 @@
 <div class="bubble" style="width:90px; height:90px; background:var(--pink); top:60%; right:-30px; animation-delay:2s;"></div>
 <div class="bubble" style="width:60px; height:60px; background:var(--gold); bottom:5%; left:10%; animation-delay:4s;"></div>
 
-<a class="sticky-book-btn" href="#orderForm">Book Now</a>
+<a class="sticky-book-btn" href="#orderForm" id="bookNowBtn">Book Now</a>
 
   <div class="page">
 
@@ -1179,6 +1179,14 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     selectTicketType('silver');
+    const bookNowBtn = document.getElementById('bookNowBtn');
+    const orderForm = document.getElementById('orderForm');
+    if (bookNowBtn && orderForm){
+      bookNowBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        orderForm.scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+    }
   });
 
   function toggleFaq(item){
