@@ -189,6 +189,16 @@
     font-size:10px;
     margin-right:5px;
   }
+  /* keep featuring items on one line on small screens */
+  .featuring{ flex-wrap:nowrap; white-space:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch }
+  .featuring > *{ flex:0 0 auto }
+  .featuring .host-pill{ margin-left:8px; white-space:nowrap }
+  .featuring .artist-names{ flex:0 0 auto; white-space:nowrap; font-weight:600 }
+  @media (max-width:640px){
+    .featuring{ display:block; white-space:nowrap; overflow-x:auto; text-align:center }
+    .featuring > *{ display:inline-block; vertical-align:middle }
+    .featuring .artist-names, .featuring .host-pill{ white-space:nowrap }
+  }
   .featuring .host-pill{
     margin-left:8px;
     background:rgba(255,255,255,0.03);
@@ -1090,7 +1100,7 @@
   <div class="eyebrow">Tabora No. 3 &bull; After Dark Pool Edition</div>
   <div class="wordmark">HOUSE TIDE</div>
   <div class="tagline">Premium poolside vibes with music, drinks, and good company.</div>
-  <div class="featuring"><span class="ft-label">Featuring</span>Lajay &amp; Zip Code <span class="host-pill">Host: <strong>MC WASTY</strong></span></div>
+  <div class="featuring"><span class="ft-label">Featuring</span><span class="artist-names">Lajay &amp; Zip Code</span> <span class="host-pill">Host: <strong>MC WASTY</strong></span></div>
   <div class="benefits-row">
     <div class="benefit-chip"><span>🥂</span> <span class="chip-full">Free welcome drink</span><span class="chip-sm">Free drink</span></div>
     <div class="benefit-chip"><span>🎶</span> <span class="chip-full">Live DJ sets</span><span class="chip-sm">Live DJ</span></div>
