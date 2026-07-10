@@ -189,6 +189,17 @@
     font-size:10px;
     margin-right:5px;
   }
+  .featuring .host-pill{
+    margin-left:8px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.04);
+    padding:6px 10px;
+    border-radius:12px;
+    font-size:11px;
+    color:var(--paper);
+    font-weight:600;
+  }
+  
   .benefits-row{
     display:flex;
     flex-wrap:wrap;
@@ -201,7 +212,7 @@
     display:inline-flex;
     align-items:center;
     gap:8px;
-    padding:10px 14px;
+    padding:8px 12px;
     border-radius:999px;
     background:rgba(245,247,248,0.08);
     color:var(--paper);
@@ -209,7 +220,7 @@
     border:1px solid rgba(245,247,248,0.16);
     box-shadow:0 8px 24px rgba(0,0,0,0.08);
   }
-  .benefit-chip span{
+  .benefit-chip > span:first-child{
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -217,7 +228,9 @@
     height:24px;
     border-radius:50%;
     background:rgba(255,255,255,0.12);
+    flex:0 0 auto;
   }
+  .chip-sm{ display:none }
 
   /* ---- event card ---- */
   .card{
@@ -231,11 +244,14 @@
   }
 
   .row2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
     margin-bottom:14px;
   }
+  .row2 .meta{ flex:0 0 auto }
+  .row2 .meta:last-child{ text-align:right }
   .meta .label{
     font-size:8px;
     letter-spacing:0.14em;
@@ -383,6 +399,11 @@
     .hero-booking::before{ position:static; margin-bottom:0; }
   }
 
+  @media (max-width:640px){
+    .row2{ flex-direction:column; align-items:flex-start; gap:6px }
+    .row2 .meta:last-child{ text-align:left }
+  }
+
   .countdown-heading{
     font-size:10px;
     letter-spacing:0.18em;
@@ -392,30 +413,46 @@
     margin-bottom:10px;
   }
   .countdown-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:8px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
   }
   .countdown-box{
-    text-align:center;
-    padding:10px 6px;
-    background:rgba(245,247,248,0.05);
-    border:1px solid rgba(245,247,248,0.1);
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-width:64px;
+    padding:8px 10px;
+    background:rgba(245,247,248,0.03);
+    border:1px solid rgba(255,255,255,0.04);
     border-radius:10px;
   }
   .countdown-box span{
     display:block;
     font-family:'Anton', sans-serif;
-    font-size:18px;
+    font-size:16px;
     color:var(--paper);
   }
   .countdown-box small{
     display:block;
-    margin-top:2px;
-    font-size:8px;
+    margin-top:4px;
+    font-size:9px;
     letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--muted);
+  }
+  .countdown-sub{
+    margin-top:8px;
+    font-size:12px;
+    color:rgba(245,247,248,0.78);
+    line-height:1.3;
+  }
   }
   .countdown-note{
     margin-top:10px;
@@ -460,6 +497,17 @@
     color:var(--gold);
     text-decoration:none;
     font-weight:700;
+  }
+
+  /* Keep benefit chips on one line on small screens with horizontal scroll */
+  @media (max-width: 640px) {
+    .benefits-row{ flex-wrap:nowrap !important; overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; padding-bottom:6px; justify-content:flex-start; white-space:nowrap; }
+    .benefits-row::-webkit-scrollbar{ height:6px }
+    .benefits-row::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.06); border-radius:999px }
+    .benefit-chip{ display:inline-block; padding:6px 8px; font-size:12px; white-space:nowrap; min-width:0; }
+    .benefit-chip > span:first-child{ width:20px; height:20px; font-size:12px }
+    .chip-full{ display:none }
+    .chip-sm{ display:inline }
   }
 
   .gallery-grid{
@@ -1042,11 +1090,11 @@
   <div class="eyebrow">Tabora No. 3 &bull; After Dark Pool Edition</div>
   <div class="wordmark">HOUSE TIDE</div>
   <div class="tagline">Premium poolside vibes with music, drinks, and good company.</div>
-  <div class="featuring"><span class="ft-label">Featuring</span>Lajay &amp; Zip Code</div>
+  <div class="featuring"><span class="ft-label">Featuring</span>Lajay &amp; Zip Code <span class="host-pill">Host: <strong>MC WASTY</strong></span></div>
   <div class="benefits-row">
-    <div class="benefit-chip"><span>🥂</span> Free welcome drink</div>
-    <div class="benefit-chip"><span>🎶</span> Live DJ sets</div>
-    <div class="benefit-chip"><span>🚗</span> Secure parking</div>
+    <div class="benefit-chip"><span>🥂</span> <span class="chip-full">Free welcome drink</span><span class="chip-sm">Free drink</span></div>
+    <div class="benefit-chip"><span>🎶</span> <span class="chip-full">Live DJ sets</span><span class="chip-sm">Live DJ</span></div>
+    <div class="benefit-chip"><span>🚗</span> <span class="chip-full">Secure parking</span><span class="chip-sm">Parking</span></div>
   </div>
 
   <div class="hero-grid">
@@ -1073,6 +1121,7 @@
 
       <div class="countdown-card">
         <div class="countdown-heading">Doors open in</div>
+        <div class="countdown-sub">Gates usually open 30 minutes before the listed time — arrive early to beat queues and secure parking.</div>
         <div class="countdown-grid">
           <div class="countdown-box"><span id="days">00</span><small>Days</small></div>
           <div class="countdown-box"><span id="hours">00</span><small>Hours</small></div>
