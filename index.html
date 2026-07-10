@@ -626,7 +626,11 @@
     50%{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(214,168,74,0.34); }
   }
 
+  #orderForm{
+    scroll-margin-top:120px;
+  }
   .booking-shell{
+    width:100%;
     margin-top:28px;
     padding:1px;
     border-radius:18px;
@@ -1077,66 +1081,64 @@
         </div>
         <div class="countdown-note">Tickets are limited and the final release is expected to sell out quickly.</div>
       </div>
-    </div>
 
-    <div class="hero-column hero-booking">
       <div id="orderForm" class="booking-shell">
-    <div class="booking-card">
-      <div class="booking-head">
-        <div>
-          <div class="booking-kicker">Limited release</div>
-          <div class="section-title" style="margin:0;">Reserve your place</div>
+        <div class="booking-card">
+          <div class="booking-head">
+            <div>
+              <div class="booking-kicker">Limited release</div>
+              <div class="section-title" style="margin:0;">Reserve your place</div>
+            </div>
+            <div class="price-pill">GH&#8373;150 each</div>
+          </div>
+          <div class="section-sub">Takes less than a minute &mdash; you'll get your order code instantly.</div>
+
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="fullName">Full name</label>
+              <input type="text" id="fullName" placeholder="e.g. Ama Boateng">
+              <div class="field-hint" id="nameHint">As it should appear on the guest list</div>
+            </div>
+
+            <div class="field-group">
+              <label for="phone">Phone number (for WhatsApp)</label>
+              <input type="tel" id="phone" placeholder="e.g. 024 123 4567">
+              <div class="field-hint" id="phoneHint">We'll only use this to confirm your entry</div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Ticket type</label>
+            <div class="ticket-type-grid">
+              <button type="button" class="ticket-type active" data-type="silver" onclick="selectTicketType('silver')">
+                <strong>Silver</strong>
+                <span>GH₵150<br><small>Regular</small></span>
+              </button>
+              <button type="button" class="ticket-type" data-type="gold" onclick="selectTicketType('gold')">
+                <strong>Gold</strong>
+                <span>GH₵200<br><small>VIP</small></span>
+              </button>
+            </div>
+          </div>
+
+          <label style="margin-top:14px;">Number of tickets</label>
+          <div class="qty-row">
+            <button type="button" class="qty-btn" onclick="changeQty(-1)">&minus;</button>
+            <span class="qty-val" id="qtyVal">1</span>
+            <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+
+          <div class="total-row">
+            <span class="label">Total due</span>
+            <span class="amount" id="totalAmount">GH&#8373;200</span>
+          </div>
+
+          <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
+
+          <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
+          <a class="share-btn" href="#" target="_blank">Share on WhatsApp</a>
         </div>
-        <div class="price-pill">GH&#8373;150 each</div>
       </div>
-      <div class="section-sub">Takes less than a minute &mdash; you'll get your order code instantly.</div>
-
-      <div class="form-grid">
-        <div class="field-group">
-          <label for="fullName">Full name</label>
-          <input type="text" id="fullName" placeholder="e.g. Ama Boateng">
-          <div class="field-hint" id="nameHint">As it should appear on the guest list</div>
-        </div>
-
-        <div class="field-group">
-          <label for="phone">Phone number (for WhatsApp)</label>
-          <input type="tel" id="phone" placeholder="e.g. 024 123 4567">
-          <div class="field-hint" id="phoneHint">We'll only use this to confirm your entry</div>
-        </div>
-      </div>
-
-      <div class="field-group">
-        <label>Ticket type</label>
-        <div class="ticket-type-grid">
-          <button type="button" class="ticket-type active" data-type="silver" onclick="selectTicketType('silver')">
-            <strong>Silver</strong>
-            <span>GH₵150<br><small>Regular</small></span>
-          </button>
-          <button type="button" class="ticket-type" data-type="gold" onclick="selectTicketType('gold')">
-            <strong>Gold</strong>
-            <span>GH₵200<br><small>VIP</small></span>
-          </button>
-        </div>
-      </div>
-
-      <label style="margin-top:14px;">Number of tickets</label>
-      <div class="qty-row">
-        <button type="button" class="qty-btn" onclick="changeQty(-1)">&minus;</button>
-        <span class="qty-val" id="qtyVal">1</span>
-        <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
-      </div>
-
-      <div class="total-row">
-        <span class="label">Total due</span>
-        <span class="amount" id="totalAmount">GH&#8373;200</span>
-      </div>
-
-      <div class="error-banner" id="formError">Please enter your full name and a valid phone number.</div>
-
-      <button class="submit" onclick="generateOrder()">Reserve My Ticket</button>
-      <a class="share-btn" href="#" target="_blank">Share on WhatsApp</a>
-    </div>
-  </div>
     </div>
   </div>
 
